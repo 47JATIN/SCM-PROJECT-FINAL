@@ -9,46 +9,48 @@ body {
     max-width: 400px;
     margin: 50px auto;
     background-color: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 2.5em;
+    margin-bottom: 30px;
     color: #333;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1.1em;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #555;
+    padding: 15px 30px;
+    background-color: #4CAF50;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.1em;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #333;
+    background-color: #45a049;
 }
 
 @media (max-width: 768px) {
     .signup-form {
         margin: 20px auto;
+        padding: 20px;
     }
 }
