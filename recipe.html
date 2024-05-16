@@ -1,52 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Sharing Website</title>
-    <style>
-        /* Reset and general styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style-type: none; }
-
-        /* Header styles */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background-color: #f8f8f8; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-        nav ul { display: flex; }
-        nav li { margin-left: 2rem; }
-        nav a { transition: color 0.3s ease; }
-        nav a:hover { color: #666; }
-        .search-bar { display: flex; align-items: center; margin-left: 2rem; }
-        .search-bar input { padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px 0 0 4px; }
-        .search-bar button { padding: 0.5rem 1rem; background-color: #333; color: #fff; border: none; border-radius: 0 4px 4px 0; cursor: pointer; transition: background-color 0.3s ease; }
-        .search-bar button:hover { background-color: #666; }
-
-        /* Recipe container styles */
-        .recipe-container { max-width: 1200px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-
-        /* Recipe card styles */
-        .recipe-card { background-color: #f8f8f8; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 4px; overflow: hidden; transition: transform 0.3s ease; }
-        .recipe-card:hover { transform: translateY(-5px); }
-        .recipe-card h2 { padding: 1rem; background-color: #333; color: #fff; }
-        .recipe-card .content { padding: 1rem; }
-        .recipe-card .ingredients, .recipe-card .steps { padding: 0 1rem; }
-        .recipe-card .steps li { margin-bottom: 0.5rem; }
-        .recipe-card .bottom { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background-color: #f4f4f4; }
-        .recipe-card .like-btn, .recipe-card .share-btn { padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease; }
-        .recipe-card .like-btn { background-color: #e74c3c; color: #fff; }
-        .recipe-card .like-btn:hover { background-color: #c0392b; }
-        .recipe-card .share-btn { background-color: #3498db; color: #fff; }
-        .recipe-card .share-btn:hover { background-color: #2980b9; }
-
-        /* Footer styles */
-        footer { background-color: #333; color: #fff; text-align: center; padding: 1rem; }
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
     <header>
         <nav>
             <div id="nav-links">
@@ -59,7 +22,7 @@
             </div>
 
             <ul>
-                <div class="search-bar">
+                <div class="searchsection">
                     <i class='fas fa-user-circle' style='font-size:24px'></i>
                     <input id="search" placeholder="Search...">
                     <button id="searchBtn">Search</button>
@@ -68,218 +31,200 @@
         </nav>
     </header>
 
-    <main>
-        <section class="recipe-container">
-            <!-- Recipe card 1 -->
-            <div class="recipe-card">
-                <h2>Spaghetti Carbonara</h2>
-                <div class="content">
-                    <h3>Ingredients:</h3>
-                    <ul class="ingredients">
-                        <li>200g spaghetti</li>
-                        <li>100g pancetta or guanciale, diced</li>
-                        <li>2 large eggs</li>
-                        <li>50g Pecorino Romano cheese, grated</li>
-                        <li>50g Parmesan cheese, grated</li>
-                        <li>Freshly ground black pepper</li>
-                    </ul>
-                    <h3>Steps:</h3>
-                    <ol class="steps">
-                        <li>Cook spaghetti in salted boiling water until al dente.</li>
-                        <li>In a separate pan, cook pancetta or guanciale until crispy.</li>
-                        <li>In a bowl, whisk eggs and add grated cheeses.</li>
-                        <li>Drain spaghetti and toss in the pancetta pan.</li>
-                        <li>Remove from heat and quickly mix in egg-cheese mixture.</li>
-                        <li>Season with black pepper and serve.</li>
-                    </ol>
-                </div>
-                <div class="bottom">
-                    <div id="comments"></div>
-                    <form id="comment-form">
-                        <input type="text" id="comment-input" placeholder="Add a comment...">
-                        <button type="submit">Submit</button>
-                    </form>
-                    <button class="share-btn" onclick="shareRecipeOnWhatsApp('Spaghetti Carbonara')">Share</button>
-                    <button class="like-btn" onclick="likeRecipe('Spaghetti Carbonara')">Like</button>
-                </div>
-            </div>
 
-            <!-- Recipe card 2 -->
-            <div class="recipe-card">
-                <h2>Chicken Stir-Fry</h2>
-                <div class="content">
-                    <h3>Ingredients:</h3>
-                    <ul class="ingredients">
-                        <li>400g chicken breast, thinly sliced</li>
-                        <li>Assorted vegetables (bell peppers, broccoli, carrots)</li>
-                        <li>3 cloves garlic, minced</li>
-                        <li>2 tablespoons soy sauce</li>
-                        <li>1 tablespoon oyster sauce</li>
-                        <li>1 tablespoon sesame oil</li>
-                        <li>Rice or noodles for serving</li>
-                    </ul>
-                    <h3>Steps:</h3>
-                    <ol class="steps">
-                        <li>Heat oil in a pan, add garlic and cook until fragrant.</li>
-                        <li>Add chicken, cook until no longer pink.</li>
-                        <li>Add vegetables, stir-fry until tender-crisp.</li>
-                        <li>Mix in soy sauce and oyster sauce.</li>
+    <main id="ide">
 
-                        <li>Drizzle with sesame oil before serving over rice or noodles.</li>
-                    </ol>
-                </div>
-                <div class="bottom">
-                    <div id="comments"></div>
-                    <form id="comment-form">
-                        <input type="text" id="comment-input" placeholder="Add a comment...">
-                        <button type="submit">Submit</button>
-                    </form>
-                    <button class="share-btn" onclick="shareRecipeOnWhatsApp('Chicken Stir-Fry')">Share</button>
-                    <button class="like-btn" onclick="likeRecipe('Chicken Stir-Fry')">Like</button>
-                </div>
-            </div>
 
-            <!-- Recipe card 3 -->
-            <div class="recipe-card">
-                <h2>Margherita Pizza</h2>
-                <div class="content">
-                    <h3>Ingredients:</h3>
-                    <ul class="ingredients">
-                        <li>Pizza dough</li>
-                        <li>Tomato sauce</li>
-                        <li>Fresh mozzarella cheese</li>
-                        <li>Fresh basil leaves</li>
-                        <li>Olive oil</li>
-                        <li>Salt and pepper</li>
-                    </ul>
-                    <h3>Steps:</h3>
-                    <ol class="steps">
-                        <li>Preheat oven to highest setting (usually around 500°F or 260°C).</li>
-                        <li>Roll out pizza dough on a floured surface.</li>
-                        <li>Spread a thin layer of tomato sauce on the dough.</li>
-                        <li>Add slices of fresh mozzarella and fresh basil leaves.</li>
-                        <li>Drizzle with olive oil, season with salt and pepper.</li>
-                        <li>Bake for about 10-12 minutes or until crust is golden.</li>
-                    </ol>
-                </div>
-                <div class="bottom">
-                    <div id="comments"></div>
-                    <form id="comment-form">
-                        <input type="text" id="comment-input" placeholder="Add a comment...">
-                        <button type="submit">Submit</button>
-                    </form>
-                    <button class="share-btn" onclick="shareRecipeOnWhatsApp('Margherita Pizza')">Share</button>
-                    <button class="like-btn" onclick="likeRecipe('Margherita Pizza')">Like</button>
-                </div>
-            </div>
+        <section class="recipe-box" id="ida1">
+            <h2>Spaghetti Carbonara</h2>
 
-            <!-- Recipe card 4 -->
-            <div class="recipe-card">
-                <h2>Vegetable Curry</h2>
-                <div class="content">
-                    <h3>Ingredients:</h3>
-                    <ul class="ingredients">
-                        <li>Assorted vegetables (e.g., potatoes, carrots, peas)</li>
-                        <li>1 can coconut milk</li>
-                        <li>2 tablespoons curry paste</li>
-                        <li>1 tablespoon vegetable oil</li>
-                        <li>1 onion, chopped</li>
-                        <li>2 cloves garlic, minced</li>
-                        <li>Cooked rice or naan for serving</li>
-                    </ul>
-                    <h3>Steps:</h3>
-                    <ol class="steps">
-                        <li>Heat oil in a pot, sauté onion and garlic until soft.</li>
-                        <li>Add curry paste and cook for a minute.</li>
-                        <li>Add vegetables and stir for a few minutes.</li>
-                        <li>Pour in coconut milk and let it simmer until vegetables are tender.</li>
-                        <li>Serve over rice or with naan.</li>
-                    </ol>
-                </div>
-                <div class="bottom">
-                    <div id="comments"></div>
-                    <form id="comment-form">
-                        <input type="text" id="comment-input" placeholder="Add a comment...">
-                        <button type="submit">Submit</button>
-                    </form>
-                    <button class="share-btn" onclick="shareRecipeOnWhatsApp('Vegetable Curry')">Share</button>
-                    <button class="like-btn" onclick="likeRecipe('Vegetable Curry')">Like</button>
-                </div>
-            </div>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>200g spaghetti</li>
+                <li>100g pancetta or guanciale, diced</li>
+                <li>2 large eggs</li>
+                <li>50g Pecorino Romano cheese, grated</li>
+                <li>50g Parmesan cheese, grated</li>
+                <li>Freshly ground black pepper</li>
+            </ul>
+            <h3>Steps:</h3>
+            <ol class="steps hidden">
+                <li>Cook spaghetti in salted boiling water until al dente.</li>
+                <li>In a separate pan, cook pancetta or guanciale until crispy.</li>
+                <li>In a bowl, whisk eggs and add grated cheeses.</li>
+                <li>Drain spaghetti and toss in the pancetta pan.</li>
+                <li>Remove from heat and quickly mix in egg-cheese mixture.</li>
+                <li>Season with black pepper and serve.</li>
+            </ol>
 
-            <!-- Recipe card 5 -->
-            <div class="recipe-card">
-                <h2>Greek Salad</h2>
-                <div class="content">
-                    <h3>Ingredients:</h3>
-                    <ul class="ingredients">
-                        <li>4 tomatoes, chopped</li>
-                        <li>1 cucumber, sliced</li>
-                        <li>1 red onion, thinly sliced</li>
-                        <li>200g feta cheese, crumbled</li>
-                        <li>Kalamata olives</li>
-                        <li>Olive oil and lemon juice</li>
-                        <li>Fresh oregano leaves</li>
-                    </ul>
-                    <h3>Steps:</h3>
-                    <ol class="steps">
-                        <li>Combine tomatoes, cucumber, and red onion in a bowl.</li>
-                        <li>Add crumbled feta and Kalamata olives.</li>
-                        <li>Drizzle with olive oil and lemon juice.</li>
-                        <li>Toss gently, garnish with fresh oregano leaves.</li>
-                    </ol>
-                </div>
-                <div class="bottom">
-                    <div id="comments"></div>
-                    <form id="comment-form">
-                        <input type="text" id="comment-input" placeholder="Add a comment...">
-                        <button type="submit">Submit</button>
-                    </form>
-                    <button class="share-btn" onclick="shareRecipeOnWhatsApp('Greek Salad')">Share</button>
-                    <button class="like-btn" onclick="likeRecipe('Greek Salad')">Like</button>
-                </div>
-            </div>
+            <div id="comments"></div>
+            <form id="comment-form">
+                <input type="text" id="comment-input" placeholder="Add a comment...">
+                <button type="submit">Submit</button>
+            </form>
+            <button class="share-btn" onclick="shareRecipeOnWhatsApp('Spaghetti Carbonara')">Share</button>
+            <button class="like-btn" onclick="likeRecipe('Spaghetti Carbonara')">Like</button>
 
-            <!-- Recipe card 6 -->
-            <div class="recipe-card">
-                <h2>Chocolate Chip Cookies</h2>
-                <div class="content">
-                    <h3>Ingredients:</h3>
-                    <ul class="ingredients">
-                        <li>1 cup butter, softened</li>
-                        <li>1 cup white sugar</li>
-                        <li>1 cup brown sugar</li>
-                        <li>2 large eggs</li>
-                        <li>1/2 teaspoon salt</li>
-                        <li>2 cups chocolate chips</li>
-                    </ul>
-                    <h3>Steps:</h3>
-                    <ol class="steps">
-                        <li>Preheat oven to 350°F (175°C).</li>
-                        <li>Cream butter and sugars until light and fluffy.</li>
-                        <li>Beat in eggs and vanilla.</li>
-                        <li>In a separate bowl, whisk flour, baking soda, and salt.</li>
-                        <li>Gradually add dry ingredients to the butter mixture.</li>
-                        <li>Stir in chocolate chips and drop spoonfuls onto a baking sheet. Bake for 10-12 minutes.</li>
-                    </ol>
-                </div>
-                <div class="bottom">
-                    <div id="comments"></div>
-                    <form id="comment-form">
-                        <input type="text" id="comment-input" placeholder="Add a comment...">
-                        <button type="submit">Submit</button>
-                    </form>
-                    <button class="share-btn" onclick="shareRecipeOnWhatsApp('Chocolate Chip Cookies')">Share</button>
-                    <button class="like-btn" onclick="likeRecipe('Chocolate Chip Cookies')">Like</button>
-                </div>
+
+
+
+
+        </section>
+
+        <section class="recipe-box" id="ida2">
+            <h2>Chicken Stir-Fry</h2>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>400g chicken breast, thinly sliced</li>
+                <li>Assorted vegetables (bell peppers, broccoli, carrots)</li>
+                <li>3 cloves garlic, minced</li>
+                <li>2 tablespoons soy sauce</li>
+                <li>1 tablespoon oyster sauce</li>
+                <li>1 tablespoon sesame oil</li>
+                <li>Rice or noodles for serving</li>
+            </ul>
+            <h3>Steps:</h3>
+            <ol class="steps hidden">
+                <li>Heat oil in a pan, add garlic and cook until fragrant.</li>
+                <li>Add chicken, cook until no longer pink.</li>
+                <li>Add vegetables, stir-fry until tender-crisp.</li>
+                <li>Mix in soy sauce and oyster sauce.</li>
+                <li>Drizzle with sesame oil before serving over rice or noodles.</li>
+            </ol>
+            <div class="bottom2">
+                <div id="comments"></div>
+                <form id="comment-form">
+                    <input type="text" id="comment-input" placeholder="Add a comment...">
+                    <button type="submit">Submit</button>
+                </form>
+                <button class="share-btn" onclick="shareRecipeOnWhatsApp('Chicken Stir-Fry')">Share</button>
+                <button class="like-btn" onclick="likeRecipe('Spaghetti Carbonara')">Like</button>
             </div>
         </section>
+
+        <section class="recipe-box" id="ida3">
+            <h2>Margherita Pizza</h2>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>Pizza dough</li>
+                <li>Tomato sauce</li>
+                <li>Fresh mozzarella cheese</li>
+                <li>Fresh basil leaves</li>
+                <li>Olive oil</li>
+                <li>Salt and pepper</li>
+            </ul>
+            <h3>Steps:</h3>
+            <ol class="steps hidden">
+                <li>Preheat oven to highest setting (usually around 500°F or 260°C).</li>
+                <li>Roll out pizza dough on a floured surface.</li>
+                <li>Spread a thin layer of tomato sauce on the dough.</li>
+                <li>Add slices of fresh mozzarella and fresh basil leaves.</li>
+                <li>Drizzle with olive oil, season with salt and pepper.</li>
+                <li>Bake for about 10-12 minutes or until crust is golden.</li>
+            </ol>
+            <div id="comments"></div>
+            <form id="comment-form">
+                <input type="text" id="comment-input" placeholder="Add a comment...">
+                <button type="submit">Submit</button>
+            </form>
+            <button class="share-btn" onclick="shareRecipeOnWhatsApp('Margherita Pizza')">Share</button>
+            <button class="like-btn" onclick="likeRecipe('Spaghetti Carbonara')">Like</button>
+
+        </section>
+
+        <section class="recipe-box" id="ida4">
+            <h2>Vegetable Curry</h2>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>Assorted vegetables (e.g., potatoes, carrots, peas)</li>
+                <li>1 can coconut milk</li>
+                <li>2 tablespoons curry paste</li>
+                <li>1 tablespoon vegetable oil</li>
+                <li>1 onion, chopped</li>
+                <li>2 cloves garlic, minced</li>
+                <li>Cooked rice or naan for serving</li>
+            </ul>
+            <h3>Steps:</h3>
+            <ol class="steps hidden">
+                <li>Heat oil in a pot, sauté onion and garlic until soft.</li>
+                <li>Add curry paste and cook for a minute.</li>
+                <li>Add vegetables and stir for a few minutes.</li>
+                <li>Pour in coconut milk and let it simmer until vegetables are tender.</li>
+                <li>Serve over rice or with naan.</li>
+            </ol>
+            <div id="comments"></div>
+            <form id="comment-form">
+                <input type="text" id="comment-input" placeholder="Add a comment...">
+                <button type="submit">Submit</button>
+            </form>
+            <button class="share-btn" onclick="shareRecipeOnWhatsApp('Vegetable Curry')">Share</button>
+            <button class="like-btn" onclick="likeRecipe('Spaghetti Carbonara')">Like</button>
+
+        </section>
+
+        <section class="recipe-box" id="ida5">
+            <h2>Greek Salad</h2>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>4 tomatoes, chopped</li>
+                <li>1 cucumber, sliced</li>
+                <li>1 red onion, thinly sliced</li>
+                <li>200g feta cheese, crumbled</li>
+                <li>Kalamata olives</li>
+                <li>Olive oil and lemon juice</li>
+                <li>Fresh oregano leaves</li>
+            </ul>
+            <h3>Steps:</h3>
+            <ol class="steps">
+                <li>Combine tomatoes, cucumber, and red onion in a bowl.</li>
+                <li>Add crumbled feta and Kalamata olives.</li>
+                <li>Drizzle with olive oil and lemon juice.</li>
+                <li>Toss gently, garnish with fresh oregano leaves.</li>
+            </ol>
+            <div id="bottom5">
+                <div id="comments"></div>
+                <form id="comment-form">
+                    <input type="text" id="comment-input" placeholder="Add a comment...">
+                    <button type="submit">Submit</button>
+                </form>
+                <button class="share-btn" onclick="shareRecipeOnWhatsApp('Greek Salad')">Share</button>
+                <button class="like-btn" onclick="likeRecipe('Spaghetti Carbonara')">Like</button>
+            </div>
+        </section>
+
+        <section class="recipe-box" id="ida6">
+            <h2>Chocolate Chip Cookies</h2>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>1 cup butter, softened</li>
+                <li>1 cup white sugar</li>
+                <li>1 cup brown sugar</li>
+                <li>2 large eggs</li>
+                <li>1/2 teaspoon salt</li>
+                <li>2 cups chocolate chips</li>
+            </ul>
+            <h3>Steps:</h3>
+            <ol class="steps hidden">
+                <li>Preheat oven to 350°F (175°C).</li>
+                <li>Cream butter and sugars until light and fluffy.</li>
+                <li>Beat in eggs and vanilla.</li>
+                <li>In a separate bowl, whisk flour, baking soda, and salt.</li>
+                <li>Gradually add dry ingredients to the butter mixture.</li>
+                <li>Stir in chocolate chips and drop spoonfuls onto a baking sheet. Bake for 10-12 minutes.</li>
+            </ol>
+            <div id="comments"></div>
+            <form id="comment-form">
+                <input type="text" id="comment-input" placeholder="Add a comment...">
+                <button type="submit">Submit</button>
+            </form>
+            <button class="share-btn" onclick="shareRecipeOnWhatsApp('Chocolate Chip Cookies')">Share</button>
+            <button class="like-btn" onclick="likeRecipe('Spaghetti Carbonara')">Like</button>
+
+        </section>
+
     </main>
+    <hr>
 
-    <footer>
-        <p>&copy; 2023 Recipe Sharing Website. All rights reserved.</p>
-    </footer>
-
-    <script src="app.js"></script>
 </body>
+
 </html>
