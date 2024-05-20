@@ -61,4 +61,4 @@ If you have any questions or suggestions, feel free to reach out to the project 
 - jaspreet05311.be23@chitkara.edu.in
 - Project GitHub - https://github.com/yourusername/food-sharing-recipe-website
 
-Thank you for contributing to the Food Sharing Recipe Website! Enjoy sharing and discovering delicious recipes.
+Thank you for contributing to the Food Sharing Recipe Website! Enjoy sharing and discovering delicious recipes with us.
