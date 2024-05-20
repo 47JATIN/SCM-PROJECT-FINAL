@@ -59,6 +59,6 @@ If you have any questions or suggestions, feel free to reach out to the project 
 - jatin0532.be23@chitkara.edu.in
 - jatin0533.be23@chitkara.edu.in
 - jaspreet05311.be23@chitkara.edu.in
-- Project GitHub - https://github.com/yourusername/food-sharing-recipe-website
+- Project GitHub - https://github.com/47JATIN/SCM-PROJECT-FINAL?tab=readme-ov-file
 
 Thank you for contributing to the Food Sharing Recipe Website! Enjoy sharing and discovering delicious recipes with us.
