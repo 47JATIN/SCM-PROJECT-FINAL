@@ -49,8 +49,11 @@ We welcome contributions from the community! Here’s how you can help:
 - Ensure your changes do not break existing functionality.
 - Include relevant tests for your changes.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## Team Members:
+
+1. Jaspreet Singh - 2310990531
+2. Jatin Aggarwal - 2310990532
+3. Jatin Gupta - 2310990533
 
 
 ## Contact
